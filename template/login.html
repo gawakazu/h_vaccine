@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+<div class="all">
+<body>
+    <h1>予約サイト</h1>
+    <h5>ID,パスワードを入力してくだい</h5>
+    
+        <form method="post">
+            {{ form.non_field_erros }}
+            {% for field in form %} 
+                {{ field }}
+                {{ field.errors }}
+            <hr>
+            {% endfor %}
+            <button type="submit"  class="button">login</button> {% csrf_token %}
+        </form>
+    </body>
+</div>
+{% endblock content %}

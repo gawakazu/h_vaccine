@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>place</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+    <div class="all">
+    <navi>
+        <li class="li3"><a href="{% url 'main' %}">main</a></li>
+        <li class="li2">place</li>
+        <li >date</li>
+        <li>time</li>
+        <li>confirm</li>
+    </navi>
+    <h2>place</h2>
+    <h5>会場を選択してください。</h5>
+    <hr>
+    <body>
+        <div class="box">
+            <table>
+                <tr>
+                    <th class="th2">項目</th>
+                </tr>
+                {% for i in place_list %} 
+                    <td class="td2">{{i}}<br>  
+                    {% if i in place_empty %}    
+                        <a href="{% url 'date' i %}" class="button">〇</a></td>
+                       
+                    {% elif i in place_half %}
+                        <a href="{% url 'date' i %}" class="button">△</a></td>
+                    {% else %}
+                        <a class="button4">×</a></td>
+                    {% endif %}
+                {% endfor %}
+                <tr>
+                    <td class="td3"><img src= "/static/katakura.png" alt="katakura" width="160"></td>
+                    <td class="td3"><img src="/static/toukoudai.png" alt="kouka" width="160"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <hr>
+    </div>
+{% endblock content %}

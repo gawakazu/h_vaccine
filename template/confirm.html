@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>date</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'date.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+    <div class="all">
+    <navi>
+        <li class="li3"><a href="{% url 'main' %}">main</a></li>
+        <li>place</li>
+        <li>date</li>
+        <li>time</li>
+        <li class="li2">confirm</li>
+    </navi>
+    <h2>confirm</h2>
+    <h5>登録してよいですか。</h5>
+    <hr>
+    <body>
+        {% if exit == 'non' %}
+            <form method="post">{% csrf_token %}
+                <input type="radio" name="final" value="{{final}}" checked>
+                {{final}}
+                <hr>
+                <button type="submit" class="button" >登録</input>
+            </form> 
+        {% else %}
+                {{final}}
+                <h4>既に登録済みです。</h4>
+                <hr>
+        {% endif %}
+    </body>
+    </div>
+{% endblock content %}

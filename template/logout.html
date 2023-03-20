@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+<div class="all">
+    <body>
+        <h1>ワクチン予約サイト</h1>
+        <h2>ログアウトしました。</h2>
+        <p><a href="{% url 'login' %}" class="button">loginへ</a></p>
+    </body>
+</div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>main</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+    <div class="all">
+    <navi>
+        <li class="li2">main</li>
+        <li>place</li>
+        <li>date</li>
+        <li>time</li>
+        <li>confirm</li>
+    </navi>
+    <h2>main</h2>
+    <h5>初めに入力する項目を、選択してください。</h5>
+    <hr>
+    <body>
+        {% if exit == "exit" %}
+            <h4>既に登録済みです。</h4>
+        {%  endif %}
+        <div class="box">
+            <table>
+                <tr>
+                    <th>項目</th>
+                </tr>
+                <tr>
+                    <td>会場<br>
+                    <a href="{% url 'place'  %}" class="button">選択</a></td>
+                    <td>日時<br>
+                    <a href="{% url 'date' ppp %}" class="button">選択</a></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <a href="{% url 'logout' %}" class="button">logout</a>
+    </body>
+    </div>
+{% endblock content %}

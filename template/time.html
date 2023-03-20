@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>time</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'date.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+    <div class="all">
+        <navi>
+            <li class="li3"><a href="{% url 'main' %}" >main</a></li>
+            <li>place</li>
+            <li>date</li>
+            <li class="li2">time</li>
+            <li>confirm</li>
+        </navi>
+        <h2>time</h2>
+        <h5>年月日を選択してください。</h5>
+        <h6>{{select}}</h6>
+        <hr>
+        <body>
+            <div class="box">
+                <table >
+                    <tr>
+                        <th class="th2">時間</th>
+                    </tr>
+                    <tr>  
+                    {% for i in time_list %}          
+                        {% if ret_place == '---' %}
+                            {% if i in number_empty %}
+                                <td >{{i}}<a href="{% url 'place2' select i %}" class='button'>〇</a></td>
+                            {% elif i in number_half %}
+                                <td >{{i}}<a href="{% url 'place2' select i %}" class='button'>△</a></td>
+                            {% else %}
+                                <td >{{i}}<a  class='button4'>×</a></td>
+                            {% endif %}
+                        {% else %}
+                            {% if i in number_empty %}
+                                <td >{{i}}<a href="{% url 'confirm' select i %}" class='button'>〇</a></td>
+                            {% elif i in number_half %}
+                                <td >{{i}}<a href="{% url 'confirm' select i %}" class='button'>△</a></td>
+                            {% else %}
+                                <td >{{i}}<a  class='button4'>×</a></td>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tr> 
+                </table>
+            </div>
+        </body>
+        <hr>
+    </div>
+{% endblock content %}

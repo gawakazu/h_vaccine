@@ -1,0 +1,12 @@
+Django==4.1.2
+django-import_export~=3.1.0
+django-pure-pagination
+
+dj-database-url
+dj-static
+python-decouple
+django-environ
+gunicorn
+psycopg2-binary
+whitenoise
+pip==23.0.1

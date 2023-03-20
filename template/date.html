@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>date</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'date.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+    <div class="all">
+        <navi>
+            <li class="li3"><a href="{% url 'main' %}">main</a></li>
+            <li>place</li>
+            <li class="li2">date</li>
+            <li>time</li>
+            <li>confirm</li>
+        </navi>
+        <h2>date</h2>
+        <h5>年月日を選択してください。</h5>
+        <h6>{{place}}</h6>
+        <hr>
+        <body>
+            <div class="box">           
+                <table>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                    <tr> 
+                    {% for i in date_list %}
+                        <td >{{i}}<br>
+                        {% if forloop.counter in select_empty %}
+                            <a href="{% url 'time' place i %}" class="button">〇</a>
+                        </td>
+                        {% elif forloop.counter in select_half %}
+                            <a href="{% url 'time' place i %}" class="button">△</a>
+                        </td>
+                        {% elif forloop.counter in select_full %}
+                            <a class="button4">×</a>
+                        </td>
+                        {% endif %}
+                        {% if forloop.counter in seven %}
+                            </tr><tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
+        </body>
+        <hr>
+        <div class="button2">
+            <a href="{% url 'date2' place previous_month %}" class="buttonb" >◀ previous</a>
+        </div>
+        <div class="button3">
+            <a href="{% url 'date2' place next_month %}" class="buttona">next ▶</a>
+        </div>
+    </div>
+{% endblock content %}

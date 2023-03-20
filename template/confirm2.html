@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block header %} 
+    <title>date</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'date.css' %}"></link>
+{% endblock header %} 
+
+{% block content %} 
+
+    <div class="all">
+    <navi>
+        <li>main</li>
+        <li>place</li>
+        <li>date</li>
+        <li>time</li>
+        <li>confirm</li>
+    </navi>
+    <h2>confirm</h2>
+    <h5>登録してよいですか。</h5>
+    <hr>
+    <body>
+        <div class="box">
+            <form method="post">
+                {{final}}
+            </form>            
+        </div>
+        <hr>
+    </body>
+    <input type=submit value="登録">
+    </div>
+{% endblock content %}
