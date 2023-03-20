@@ -28,12 +28,12 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = 'django-insecure-pa8ycnou&@212ddv#nhu@8d+kc^ilz3m^s%t2ar7_*)xu$+708'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-    #'e-learning-kv21.onrender.com',
-    #'127.0.0.1',
-    #]
+ALLOWED_HOSTS = [
+    'h-vaccine.onrender.com',
+    '127.0.0.1',
+    ]
 
 
 # Application definition
